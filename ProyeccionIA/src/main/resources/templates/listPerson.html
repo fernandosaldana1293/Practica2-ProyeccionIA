@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>ProyeccionIA - Impuesto a la Renta</title>
+</head>
+<body>
+
+<br>
+<br>
+<h2 style="text-align:center;">Lista de Registro Tributarios</h2><br/>
+<a href="/person/new"><input type="reset" value="AGREGAR REGISTRO" class="btn btn-danger"/></a>
+
+<br>
+<br>
+<table class="table" border="1" style="text-align:center;">
+<thead>
+  <tr bgcolor="33AFFF">
+  	<td>ID</td>
+  	<td>DNI</td>
+  	<td>NOMBRE</td>
+  	<td>INGRESO DEPENDIENTE</td>
+  	<td>INGRESO INDEPENDIENTE</td>
+  	<td>INGRESO BRUTO</td>
+  	<td>IMPUESTO</td>
+  	<td>INGRESO NETO</td>
+  </tr>
+</thead>
+       
+   <tbody>
+  <tr th:each="person : ${persons}">
+  	<td th:text="${person.id}"></td>
+  	<td th:text="${person.dni}"></td>
+  	<td th:text="${person.nombre}"></td>
+  	<td th:text="${person.ingresoDependiente}"></td>
+  	<td th:text="${person.ingresoIndependiente}"></td>
+  	<td th:text="${person.ingresoAnual}"></td>
+  	<td th:text="${person.impuestoTotal}"></td>
+  	<td th:text="${person.ingresoTotal}"></td>
+  </tr>
+</tbody>
+</table>
+
+
+</body>
+</html>

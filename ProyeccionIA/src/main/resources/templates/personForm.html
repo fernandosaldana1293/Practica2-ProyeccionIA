@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Registro Tributario</title>
+</head>
+<body>
+
+
+<div class="container">
+<br>
+<br>
+<br>
+<h2>REGISTRO DE DATOS TRIBUTARIOS</h2>
+<br>
+<br>
+<form action="#" th:action="@{/person/new}" th:object="${person}" method="post">
+	<table class="table" style="text-align:center;" border="2">
+		
+		<tr>
+			<td>DNI:</td>
+			<td><input type="text" th:field="*{dni}"/></td>
+			<td th:if="${#fields.hasErrors('dni')}"
+			    th:errors="*{dni}">DNI Error</td>
+		</tr>
+		
+		<tr>
+			<td>NOMBRE:</td>
+			<td><input type="text" th:field="*{nombre}"/></td>
+			<td th:if="${#fields.hasErrors('nombre')}"
+			    th:errors="*{nombre}">NOMBRE Error</td>
+		</tr>
+		
+		<tr>
+			<td>TOTAL DE INGRESO DEPENDIENTE:</td>
+			<td><input type="text" th:field="*{ingresoDependiente}"/></td>
+			<td th:if="${#fields.hasErrors('ingresoDependiente')}"
+			    th:errors="*{ingresoDependiente}">TOTAL DE INGRESO DEPENDIENTEL</td>
+		</tr>
+		
+		<tr>
+			<td>TOTAL DE INGRESO INDEPENDIENTE:</td>
+			<td><input type="text" th:field="*{ingresoIndependiente}"/></td>
+			<td th:if="${#fields.hasErrors('ingresoIndependiente')}"
+			    th:errors="*{ingresoIndependiente}">TOTAL DE INGRESO INDEPENDIENTEL</td>
+		</tr>
+				
+		<tr>
+			<td><input type="submit" value="REGISTRAR" class="btn btn-primary"/></td>
+			<td><input type="reset" value="CANCELAR" class="btn btn-danger"/></td>
+		</tr>
+	</table>
+
+
+</form>
+<br/>
+<h3><a href="/person/list">Listar Registros</a></h3>	
+</div>
+
+</body>
+</html>
